@@ -2,25 +2,25 @@
 
 using namespace std;
 
-// int fun(int n)
-// {
-//     static int x=0;//static
-//     if(n>0)
-//     {   
-//         // x++;//static
-//         // return fun(n-1)+x;//static
-//         return fun(n-1)+n;
-//     }
-//     return 0;
-// }
+int fun(int n)
+{
+    static int x=0;//static
+    if(n>0)
+    {   
+        // x++;//static
+        // return fun(n-1)+x;//static
+        return fun(n-1)+n;
+    }
+    return 0;
+}
 
-// int main()
-// {
-//     int a = 5;
-//     cout<<fun(a);
+int main()
+{
+    int a = 5;
+    cout<<fun(a);
 
-//     return 0;
-// }
+    return 0;
+}
 
 //TREE RECURSION
 
