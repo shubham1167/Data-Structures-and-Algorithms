@@ -1,0 +1,221 @@
+#include <iostream>
+
+using namespace std;
+
+//INCREASING ARRAY size
+
+// int main()
+// {
+//     int *a = new int[6];
+//     a[0]=1;a[1]=2;a[2]=3;a[3]=5;a[4]=5;a[5]=5;
+//     int *b = new int[10];
+    
+//     for(int i=0; i<=5; i++)
+//     {
+//         cout<<a[i];
+//     }
+    
+//     cout<<endl;
+    
+//     for(int i=0; i<=5; i++)
+//     {
+//         b[i] = a[i];
+//     }
+    
+//     delete[] a;
+//     a = b;
+//     b = NULL;
+    
+//     for(int i=0; i<=9; i++)
+//     {
+//         cout<<a[i];
+//     }
+    
+//     return 0;
+// }
+
+//ARRAY AS ADT
+// struct arr{
+//     int *A;
+//     int len;
+//     int size;
+// };
+
+
+// int main()
+// {
+//     int n,i;
+//     struct arr AA;
+//     AA.A = new int[5];
+//     cout<<"SIZE ";
+//     cin>>AA.size;
+//     // cout<<AA.size;
+//     AA.A[AA.size];
+    
+//     AA.len = 0;
+    
+//     cout<<"ENTER NO OF ELEMENTS";
+//     cin>>n;
+    
+//     cout<<"ENTER ELEMENTS "<<endl;
+//     for(i=0;i<n;i++)
+//         cin>>AA.A[i];
+    
+//     cout<<"ARRAY ";
+//     for(i=0;i<n;i++)
+//         cout<<AA.A[i];
+        
+// }
+
+//INSERTING IN AN ARRAY
+
+struct arr{
+    int A[10];
+    int len;
+    int size;
+};
+
+// void insert(struct arr AR,int index,int value)
+// {
+     
+//     cout<<"DONE";
+    
+//     for(int j=(AR.len)-1; j=index; j--)
+//     {
+//         AR.A[j] = AR.A[j-1]; 
+//     }
+//     AR.A[index] = value;
+    
+// }
+
+// int main()
+// {
+//     int index,value;
+//     struct arr AR = {{3,4,6,8,9},5,10};
+    
+//     cout<<"ARRAY IS A "<<endl;
+//     for(int i=0;i<5;i++)
+//         cout<<AR.A[i];
+        
+//     cout<<"INDEX "<<endl;
+//     cin>>index;
+//     cout<<"Value "<<endl;
+//     cin>>value;
+    
+//     insert(AR,3,1);
+        
+//     cout<<"ARRAY IS ";
+//     for(int i=0;i<6;i++)
+//         cout<<AR.A[i];
+//     return 0;
+// }
+void display(struct arr *AR)
+{
+    cout<<"ARRAY IS ";
+    for(int a=0;a<AR->len;a++)
+        cout<<AR->A[a]<<" ";
+};
+// void del(struct arr *AR,int index)
+// {
+//     for(int i = index; i<AR->len-1; i++)
+//     {
+//         AR->A[i] = AR->A[i+1];
+//     }
+//     AR->len--;
+// };
+// void append(struct arr *AR,int k)
+// {
+//     AR->A[AR->len] = k;
+//     AR->len++;
+// };
+
+// int insert(struct arr *AR , int index, int value)
+// {
+//     if(index>=0 && index<AR->len)
+//     {
+//         for(int i=AR->len;i>index;i--)
+//         {
+//             AR->A[i]=AR->A[i-1];
+//         }
+//         AR->A[index] = value;
+//         AR->len++;
+//     }    
+//     return 0;
+// };
+
+void swap(int *m, int *n)
+{
+    int temp = *m;
+    *m = *n;
+    *n = temp;
+}
+
+int linear_search(struct arr *AR,int key)
+{
+    for(int i=0; i<AR->len;i++)
+    {
+        if(AR->A[i] == key)
+        {
+            cout<<i<<endl;
+            swap(&key,&AR->A[0]);
+            return 0;
+        }
+    }
+    cout<<"NOT FOUND"<<endl;
+    return 0;
+    
+};
+int main()
+{
+    struct arr AR1 = {{3,4,6,8,9},5,10};
+    // insert(&AR1,2,5);
+    // append(&AR1,7);
+    // del(&AR1,1);
+    
+    linear_search(&AR1,6);
+    display(&AR1);
+
+}
+int binary_search (struct arr AR, int key)
+{
+  int l,mid,h;
+  l=0;
+  
+  cout << "hell";
+  h = AR.len - 1;
+  while (l <= h)
+    {
+      mid = (l + h) / 2;
+      if (key == AR.A[mid])
+	{
+// 	  cout << m;
+	  return mid;
+	}
+      else if (key < AR.A[mid])
+	{
+	  h == mid - 1;
+	}
+      else
+	{
+	  l == mid+ 1;
+	}
+    }
+  return -1;
+}
+
+
+
+
+reverse_array1(AR1);
+    // insert(&AR1,2,5);
+    // append(&AR1,7);
+    // del(&AR1,1);
+
+    // display (&AR1);
+    // // linear_search(&AR1,6);
+    // binary_search (AR1, 4);
+    // cout<<RECbinary_search(AR1.A, 0, AR1.len-1, 55)<<endl;
+    // cout<<BinarySearch(AR1,16)<<endl;
+    // cout<<max(AR1);
+    
+    display (&AR1);
